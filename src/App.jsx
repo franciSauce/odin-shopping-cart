@@ -6,17 +6,12 @@ import styles from './App.module.css'
 import './index.css'
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(() => {
+    const data = JSON.parse(localStorage.getItem("cart"));
+    return Array.isArray(data) ? data : [];
+  });
 
   const totalQty = products.reduce((acc, curr) => acc + curr.quantity, 0);
-
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("cart"))
-    if (!data) return
-    if (data.length > 0) {
-      setProducts(data)
-    }
-  }, [])
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(products))
