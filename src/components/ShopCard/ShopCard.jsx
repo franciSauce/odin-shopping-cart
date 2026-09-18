@@ -1,6 +1,6 @@
 import { mdiPlus, mdiMinus } from '@mdi/js';
 import Icon from '@mdi/react';
-import styles from './Cart.module.css';
+import styles from './ShopCard.module.css';
 
 const ShopCard = ({d, onChange, onClickAddToCart, onClickDecrease, onClickIncrease}) => {
     return (

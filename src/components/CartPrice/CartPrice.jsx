@@ -1,6 +1,6 @@
 import { mdiDelete } from '@mdi/js';
 import Icon from '@mdi/react';
-import styles from './Cart.module.css';
+import styles from './CartPrice.module.css';
 
 const CartPrice = ({product, deleteProduct}) => {
     return (
