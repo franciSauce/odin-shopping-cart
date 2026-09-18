@@ -1,5 +1,6 @@
 import { mdiDelete } from '@mdi/js';
 import { Icon } from '@mdi/react';
+import { formatKsh } from '../../modules/currency';
 import styles from './CartPrice.module.css';
 
 const CartPrice = ({product, deleteProduct}) => {
@@ -10,7 +11,7 @@ const CartPrice = ({product, deleteProduct}) => {
                 <button onClick={deleteProduct}>
                     <Icon size={1} path={mdiDelete} />
                 </button>
-                <p>{(product.price * product.quantity).toFixed(2)} Ksh</p>
+                <p>{formatKsh(product.price * product.quantity)}</p>
             </div>
         </div>
     )

@@ -1,5 +1,6 @@
 import { mdiPlus, mdiMinus } from '@mdi/js';
 import { Icon } from '@mdi/react';
+import { formatKsh } from '../../modules/currency';
 import styles from './ShopCard.module.css';
 
 const ShopCard = ({d, onChange, onClickAddToCart, onClickDecrease, onClickIncrease}) => {
@@ -8,7 +9,7 @@ const ShopCard = ({d, onChange, onClickAddToCart, onClickDecrease, onClickIncrea
             <img src={d.image} alt={d.title} />
             <div className={styles.info}>
                 <p>{d.title}</p>
-                <p>{`Ksh ${d.price}`}</p>
+                <p>{formatKsh(d.price)}</p>
             </div>
             <div className={styles.actions}>
                 <button onClick={onClickDecrease}>

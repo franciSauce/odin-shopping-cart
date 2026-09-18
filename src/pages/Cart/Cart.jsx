@@ -2,6 +2,7 @@ import { useOutletContext }  from "react-router-dom";
 import { updateQty } from "../../modules/index";
 import CartDetail from "../../components/CartDetail/CartDetail";
 import CartPrice from '../../components/CartPrice/CartPrice';
+import { formatKsh } from '../../modules/currency';
 import styles from './Cart.module.css';
 
 const Cart = () => {
@@ -66,7 +67,7 @@ const Cart = () => {
         ) : (
           <p>Your cart is empty</p>
         )}
-        <p>Total:  {products.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0).toFixed(2)} Ksh</p>
+        <p>Total: {formatKsh(products.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0))}</p>
             </div>
         </div>
     )

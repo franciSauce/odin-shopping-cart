@@ -8,7 +8,7 @@ const CartDetail =({product, onChange, increaseQty, decreaseQty}) => {
             <img src={product.image} alt={product.title} />
             <div>
                 <p>{product.title}</p>
-                <p>${product.description}</p>
+                <p>{product.description}</p>
             </div>
             <div>
                 <button onClick={increaseQty}>
