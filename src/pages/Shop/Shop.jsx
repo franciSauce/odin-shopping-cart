@@ -9,7 +9,7 @@ import styles from './Shop.module.css';
 const Shop = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  const [products, setProducts] = useOutletContext()
+  const [, setProducts] = useOutletContext()
 
   useEffect(() => {
     async function fetchImages() {
@@ -45,7 +45,7 @@ const Shop = () => {
       if (idx !== i) return d
 
       const value = Number(e.target.value)
-      if (value === NaN) return d
+      if (Number.isNaN(value)) return d
       if (value < 1) return {...d, quantity: 1}
 
       return {...d,quantity: value,}

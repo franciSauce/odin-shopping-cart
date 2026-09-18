@@ -1,7 +1,7 @@
 import { useOutletContext }  from "react-router-dom";
 import { updateQty } from "../../modules/index";
 import CartDetail from "../../components/CartDetail/CartDetail";
-import CartPrice from '../../components/CartPrice';
+import CartPrice from '../../components/CartPrice/CartPrice';
 import styles from './Cart.module.css';
 
 const Cart = () => {
@@ -15,7 +15,7 @@ const Cart = () => {
     function onChange(e, i) {
         setProducts(products.map((p, idx) => {
             const value = Number(e.target.value);
-            if (value === NaN) return p
+            if (Number.isNaN(value)) return p
             if (value < 1) return {...p, quantity: 1}
 
             return idx === i ?

@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Homepage.module.css';
 
@@ -16,7 +15,7 @@ const Homepage = () => {
                 <Link to='/shop'>See Products</Link>
             </div>
             <div className={styles.imageGrid}>
-                {imagesSizes.map(imageSize => <div><img src={`https://dummyjson.com/images/${imageSize}`}/></div>)}
+                {imagesSizes.map((imageSize, index) => <div key={`${imageSize}-${index}`}><img src={`https://dummyjson.com/images/${imageSize}`} /></div>)}
             </div>
         </div>
     )
