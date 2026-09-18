@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { mdiInstagram, mdiTwitter, mdiFacebook } from '@mdi/js'
-import Icon from '@mdi/react'
+import { Icon } from '@mdi/react'
 import styles from './App.module.css'
 import './index.css'
 
