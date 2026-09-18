@@ -1,16 +1,89 @@
-# React + Vite
+# Shop!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React shopping cart application built with Vite. Browse products, select quantities, add items to a persistent cart and review cart totals in Kenyan shillings.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Product catalogue loaded from the [Fake Store API](https://fakestoreapi.com/).
+- Product quantity controls before adding an item to the cart.
+- Cart quantity controls, item removal and grand totals.
+- Cart persistence with `localStorage`.
+- USD-to-Ksh price conversion using a shared exchange-rate helper.
+- Client-side routing with React Router.
+- Responsive homepage gallery using local SVG assets.
+- Netlify SPA fallback for direct navigation to application routes.
 
-## React Compiler
+## Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- React Router
+- Material Design Icons
+- CSS Modules
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Requirements
+
+- Node.js 18 or newer
+- npm
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+Vite will print the local development URL in the terminal.
+
+### Production Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Available Scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server. |
+| `npm run build` | Create a production build in `dist/`. |
+| `npm run preview` | Preview the production build locally. |
+| `npm run lint` | Run ESLint across the project. |
+
+## Project Structure
+
+```text
+src/
+	components/       Reusable shop and cart components
+	modules/          Shared helpers, including currency conversion
+	pages/            Homepage, shop and cart route views
+	routes/           React Router route configuration
+	App.jsx           Shared layout and cart state owner
+	main.jsx          Application entry point
+public/
+	_redirects        Netlify fallback for client-side routes
+```
+
+## Currency Conversion
+
+The Fake Store API provides prices in USD. Displayed prices are converted to Ksh using the `USD_TO_KSH` value in [`src/modules/currency.js`](src/modules/currency.js). Update that value when the exchange rate changes.
+
+Cart state keeps the original API price for calculations and converts values only when displaying them.
+
+## Deployment
+
+The `public/_redirects` file contains the Netlify SPA fallback:
+
+```text
+/* /index.html 200
+```
+
+This sends unknown routes to the React entry point so React Router can handle navigation.
