@@ -1,5 +1,5 @@
 import { mdiPlus, mdiMinus } from '@mdi/js';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import styles from './ShopCard.module.css';
 
 const ShopCard = ({d, onChange, onClickAddToCart, onClickDecrease, onClickIncrease}) => {
@@ -12,17 +12,11 @@ const ShopCard = ({d, onChange, onClickAddToCart, onClickDecrease, onClickIncrea
             </div>
             <div className={styles.actions}>
                 <button onClick={onClickDecrease}>
-                    <Icon>
-                        path={mdiMinus}
-                        size={1}
-                    </Icon>
+                    <Icon path={mdiMinus} size={1} />
                 </button>
                 <input type="number" value={d.quantity} onChange={onChange} />
                 <button onClick={onClickIncrease}>
-                    <Icon>
-                        path={mdiPlus}
-                        size={1}
-                    </Icon>
+                    <Icon path={mdiPlus} size={1} />
                 </button>
             </div>
             <button onClick={() => {onClickAddToCart(d)}}>Add to Cart</button>

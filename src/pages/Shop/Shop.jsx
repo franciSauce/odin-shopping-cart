@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { mdiLoading } from '@mdi/js';
-import Icon from "@mdi/react";
+import { Icon } from "@mdi/react";
 import { updateQty } from "../../modules/index";
 import ShopCard from "../../components/ShopCard/ShopCard";
 import styles from './Shop.module.css';

@@ -1,5 +1,5 @@
 import { mdiDelete } from '@mdi/js';
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import styles from './CartPrice.module.css';
 
 const CartPrice = ({product, deleteProduct}) => {
@@ -8,10 +8,7 @@ const CartPrice = ({product, deleteProduct}) => {
             <p>{product.title}</p>
             <div>
                 <button onClick={deleteProduct}>
-                    <Icon>
-                        size={1}
-                        path={mdiDelete}
-                    </Icon>
+                    <Icon size={1} path={mdiDelete} />
                 </button>
                 <p>{(product.price * product.quantity).toFixed(2)} Ksh</p>
             </div>

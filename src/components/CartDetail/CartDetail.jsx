@@ -1,4 +1,4 @@
-import Icon from '@mdi/react';
+import { Icon } from '@mdi/react';
 import { mdiPlus, mdiMinus } from '@mdi/js';
 import styles from './CartDetail.module.css';
 
@@ -12,17 +12,11 @@ const CartDetail =({product, onChange, increaseQty, decreaseQty}) => {
             </div>
             <div>
                 <button onClick={increaseQty}>
-                    <Icon>
-                        size={1}
-                        path={mdiPlus}
-                    </Icon>
+                    <Icon size={1} path={mdiPlus} />
                 </button>
                 <input type="number" value={product.quantity} onChange={onChange} />
                 <button onClick={decreaseQty}>
-                    <Icon>
-                        size={1}
-                        path={mdiMinus}
-                    </Icon>
+                    <Icon size={1} path={mdiMinus} />
                 </button>
             </div>
         </div>
