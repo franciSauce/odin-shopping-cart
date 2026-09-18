@@ -1,10 +1,23 @@
 import { Link } from 'react-router-dom';
+import sunriseImage from '../../assets/gallery-sunrise.svg';
+import shapesImage from '../../assets/gallery-shapes.svg';
+import orbitImage from '../../assets/gallery-orbit.svg';
+import archImage from '../../assets/gallery-arch.svg';
+import slicesImage from '../../assets/gallery-slices.svg';
 import styles from './Homepage.module.css';
 
 const Homepage = () => {
-    const imagesSizes = [
-        '750x250', '250x500', '250x500', '250x250', '250x500',
-        '250x500', '250x250', '250x500', '500x250', '750x250'
+    const galleryImages = [
+        { src: sunriseImage, alt: 'Sunrise over layered hills' },
+        { src: shapesImage, alt: 'Colorful geometric shapes' },
+        { src: orbitImage, alt: 'Orbiting circles' },
+        { src: archImage, alt: 'Abstract arch' },
+        { src: orbitImage, alt: 'Orbiting circles' },
+        { src: shapesImage, alt: 'Colorful geometric shapes' },
+        { src: archImage, alt: 'Abstract arch' },
+        { src: orbitImage, alt: 'Orbiting circles' },
+        { src: slicesImage, alt: 'Layered color slices' },
+        { src: sunriseImage, alt: 'Sunrise over layered hills' },
     ];
 
     return (
@@ -15,7 +28,7 @@ const Homepage = () => {
                 <Link to='/shop'>See Products</Link>
             </div>
             <div className={styles.imageGrid}>
-                {imagesSizes.map((imageSize, index) => <div key={`${imageSize}-${index}`}><img src={`https://dummyjson.com/images/${imageSize}`} /></div>)}
+                {galleryImages.map(({ src, alt }, index) => <div key={`${src}-${index}`}><img src={src} alt={alt} /></div>)}
             </div>
         </div>
     )
